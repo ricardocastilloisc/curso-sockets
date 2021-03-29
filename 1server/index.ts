@@ -4,6 +4,7 @@ import router  from './routes/router';
 import bodyParser, { json } from 'body-parser';
 import cors from 'cors';
 
+
 const server = new Server();
 
 //bodyparser
