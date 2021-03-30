@@ -49,7 +49,7 @@ class Server {
         console.log('Escuchando conexiones');
         this.io.on('connection', (cliente) => {
             console.log('Cliente conectado');
-            socket.mensaje(cliente);
+            socket.mensaje(cliente, this.io);
             socket.desconectar(cliente);
         });
     }

@@ -14,7 +14,7 @@ export default class Server{
         this.app = express();
         this.port = SERVERT_PORT;
         this.httpServer = new http.Server(this.app);
-        this.io=require("socket.io")(this.httpServer, {
+        this.io = require("socket.io")(this.httpServer, {
             cors: {
                 origin: true,
                 credentials: true
@@ -32,7 +32,7 @@ export default class Server{
         this.io.on('connection',(cliente)=>{
             console.log('Cliente conectado');
 
-            socket.mensaje(cliente);
+            socket.mensaje(cliente, this.io);
 
             socket.desconectar(cliente);
         })

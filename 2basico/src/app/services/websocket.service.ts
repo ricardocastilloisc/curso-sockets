@@ -25,8 +25,12 @@ export class WebsocketService {
     //emmit('veneto que quiero emitri', payload, callbak)
 
     console.log('emitiendo mensaje');
-    
+
     this.socket.emit(evento, payload, callback);
+  }
+
+  listen = (evento:string) => {
+    return this.socket.fromEvent(evento);
   }
 
 }
