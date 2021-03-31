@@ -37,16 +37,10 @@ export class WebsocketService {
 
   loginWs = (nombre:string) =>{
 
-
     this.emit('configurar-usuario', {nombre},(resp) => {
       console.log(resp);
     })
-    /*
-    console.log('configurando nombre');
-    this.socket.emit('configurar-usuario',{nombre}, (resp) =>{
-      console.log(resp)
-    });
-    */
+
   }
 
 }
