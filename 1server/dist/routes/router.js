@@ -16,6 +16,9 @@ exports.router.get('/mensajes', (req, res) => {
 exports.router.post('/mensajes/', (req, res) => {
     const cuerpo = req.body.cuerpo;
     const de = req.body.de;
+    const server = server_1.default.instance;
+    const payload = { cuerpo, de };
+    server.io.emit('mensaje-nuevo', payload);
     res.json({
         ok: true,
         cuerpo,
