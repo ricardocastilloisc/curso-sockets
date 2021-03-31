@@ -49,12 +49,14 @@ class Server {
         console.log('Escuchando conexiones');
         this.io.on('connection', (cliente) => {
             //conectar clientes
-            socket.conectarCliente(cliente);
+            socket.conectarCliente(cliente, this.io);
             //configurar usuario
             socket.configurarUsuario(cliente, this.io);
+            //obtener usuarios activos
+            socket.obtenerUsuarios(cliente, this.io);
             //console.log('Cliente conectado');
             socket.mensaje(cliente, this.io);
-            socket.desconectar(cliente);
+            socket.desconectar(cliente, this.io);
         });
     }
 }

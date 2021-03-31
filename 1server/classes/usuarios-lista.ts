@@ -25,7 +25,9 @@ export class UsuariosLista
         console.log(this.lista);
     }
 
-    public getLista = () =>{return this.lista}
+    public getLista = () =>{
+        return this.lista.filter(usuario=>usuario.nombre!=='sin-nombre');
+    }
     
 
     public getUsuario = (id:string) =>{

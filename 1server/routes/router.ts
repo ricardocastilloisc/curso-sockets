@@ -1,6 +1,7 @@
 import {Router, Request, Response} from 'express'
 import Server from '../classes/server';
 import {Socket} from 'socket.io';
+import { usuariosConectados } from '../sockets/socket';
 
 
 export const router = Router();
@@ -66,5 +67,15 @@ router.get('/usuarios', (req:Request, res:Response) =>{
         })
     } );
 })
+
+
+router.get('/usuarios/detalle',(req: Request, res: Response) =>
+{
+    res.json({
+        ok:true,
+        clientes:usuariosConectados.getLista(),
+    })
+    
+});
 
 export default router;

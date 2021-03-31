@@ -18,7 +18,9 @@ class UsuariosLista {
             console.log('actualizando usuarios');
             console.log(this.lista);
         };
-        this.getLista = () => { return this.lista; };
+        this.getLista = () => {
+            return this.lista.filter(usuario => usuario.nombre !== 'sin-nombre');
+        };
         this.getUsuario = (id) => {
             return this.lista.find(usuario => usuario.id === id);
         };
