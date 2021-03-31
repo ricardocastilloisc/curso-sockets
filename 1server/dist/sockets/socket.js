@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mensaje = exports.desconectar = void 0;
+exports.configurarUsuario = exports.mensaje = exports.desconectar = void 0;
 const desconectar = (cliente) => {
     cliente.on('disconnect', () => {
         console.log('cliente desconectado');
@@ -14,3 +14,14 @@ const mensaje = (cliente, io) => {
     });
 };
 exports.mensaje = mensaje;
+const configurarUsuario = (cliente, io) => {
+    cliente.on('configurar-usuario', (payload, callback) => {
+        console.log('configurar-usuario', payload);
+        callback({
+            ok: true,
+            mensaje: `Usuario ${payload.nombre}, configurado`
+        });
+        //io.emit('configurar-usuario', payload)
+    });
+};
+exports.configurarUsuario = configurarUsuario;

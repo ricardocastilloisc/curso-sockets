@@ -33,6 +33,8 @@ export default class Server{
             console.log('Cliente conectado');
 
             socket.mensaje(cliente, this.io);
+            
+            socket.configurarUsuario(cliente, this.io);
 
             socket.desconectar(cliente);
         })
