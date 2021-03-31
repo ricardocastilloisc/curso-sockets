@@ -42,4 +42,18 @@ exports.router.post('/mensajes/:id', (req, res) => {
         id
     });
 });
+//servicio para obtener todos los IDs de todos los usuarios
+exports.router.get('/usuarios', (req, res) => {
+    const server = server_1.default.instance;
+    server.io.allSockets().then(client => {
+        let clientes = [];
+        client.forEach(e => {
+            clientes.push(e);
+        });
+        res.json({
+            ok: true,
+            clientes
+        });
+    });
+});
 exports.default = exports.router;
